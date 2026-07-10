@@ -239,6 +239,12 @@
       font-size: 13px;
       color: var(--muted);
     }
+    .meta a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .meta a:hover { opacity: 0.85; color: var(--text); }
 
     .points {
       list-style: none;
@@ -294,6 +300,7 @@
 
   <div class="page">
     <nav>
+      <a href="https://github.com/daniel-farina/askhere/releases" target="_blank" rel="noopener">Releases</a>
       <a href="https://x.com/daniel_farinax" target="_blank" rel="noopener">@daniel_farinax</a>
     </nav>
 
@@ -303,7 +310,7 @@
         <h1>AskHere.ai</h1>
         <p class="tagline">Talk with Grok on your Mac.</p>
         <a class="btn" href="https://github.com/daniel-farina/askhere/releases/latest/download/AskHere.dmg">Download for Mac</a>
-        <p class="meta">Free · macOS 15+</p>
+        <p class="meta">Free · macOS 15+ · <a href="https://github.com/daniel-farina/askhere/releases" target="_blank" rel="noopener">GitHub releases</a></p>
       </div>
 
       <img
@@ -322,7 +329,7 @@
     </main>
 
     <footer>
-      <span>By <a href="https://x.com/daniel_farinax" target="_blank" rel="noopener">@daniel_farinax</a> · Not affiliated with xAI</span>
+      <span>By <a href="https://x.com/daniel_farinax" target="_blank" rel="noopener">@daniel_farinax</a> · <a href="https://github.com/daniel-farina/askhere/releases" target="_blank" rel="noopener">Releases</a> · Not affiliated with xAI</span>
       <span>© <span id="y"></span> Daniel Farina</span>
     </footer>
   </div>
