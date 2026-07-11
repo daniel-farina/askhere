@@ -19,8 +19,8 @@
   <meta property="og:title" content="Xnative — Native Grok Build for Mac" />
   <meta property="og:description" content="Grok Build without the terminal. One-click xAI login, auto-install CLI, projects, chats, and live sessions. Free for macOS 15+." />
   <!-- Primary large card: logo + app preview (1200×630) -->
-  <meta property="og:image" content="https://xnative.app/og-share-v2.png" />
-  <meta property="og:image:secure_url" content="https://xnative.app/og-share-v2.png" />
+  <meta property="og:image" content="https://xnative.app/og-share-v3.png" />
+  <meta property="og:image:secure_url" content="https://xnative.app/og-share-v3.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -39,13 +39,13 @@
   <meta name="twitter:url" content="https://xnative.app/" />
   <meta name="twitter:title" content="Xnative — Native Grok Build for Mac" />
   <meta name="twitter:description" content="Grok Build without the terminal. Auto-installs CLI, one-click xAI login, projects & chats. Free for Mac." />
-  <meta name="twitter:image" content="https://xnative.app/og-share-v2.png" />
+  <meta name="twitter:image" content="https://xnative.app/og-share-v3.png" />
   <meta name="twitter:image:alt" content="Xnative app — native Grok Build for Mac, with project sidebar and chat" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="https://xnative.app/app-icon-v2.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://xnative.app/app-icon-v2.png" />
   <link rel="apple-touch-icon" href="https://xnative.app/app-icon-v2.png" />
-  <link rel="image_src" href="https://xnative.app/og-share-v2.png" />
+  <link rel="image_src" href="https://xnative.app/og-share-v3.png" />
 
   <style>
     :root {
@@ -239,14 +239,15 @@
     .meta a:hover { opacity: 0.85; color: var(--text); }
 
     .shot {
-      width: min(100%, 860px);
+      display: block;
+      width: min(100%, 920px);
       height: auto;
-      margin-top: 48px;
-      border-radius: 16px;
-      box-shadow:
-        0 0 0 1px var(--line),
-        0 24px 64px rgba(0,0,0,0.12);
-      background: var(--soft);
+      margin: 48px auto 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      filter: none;
     }
     .points {
       list-style: none;
@@ -328,8 +329,8 @@
         class="shot"
         src="screenshot.png"
         alt="Xnative app showing projects, conversations, and chat"
-        width="2396"
-        height="1540"
+        width="2560"
+        height="1558"
       />
 
       <ul class="points">
