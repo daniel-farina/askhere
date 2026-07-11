@@ -3,36 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AskHere.ai — Talk with Grok on your Mac</title>
-  <meta name="description" content="AskHere.ai is a free Mac app for talking with Grok. Download from askhere.ai — it installs Grok Build for you and signs you in. Simple, native, not affiliated with xAI." />
+  <title>Xnative — Talk with Grok on your Mac</title>
+  <meta name="description" content="Xnative is a free Mac app for talking with Grok. Download from xnative.app — it installs Grok Build for you and signs you in. Simple, native, not affiliated with xAI. Formerly AskHere." />
   <meta name="author" content="Daniel Farina (@daniel_farinax)" />
   <meta name="theme-color" content="#f5f5f7" />
   <meta name="color-scheme" content="light" />
-  <link rel="canonical" href="https://askhere.ai/" />
+  <link rel="canonical" href="https://xnative.app/" />
 
-  <!-- Open Graph (iMessage, Slack, LinkedIn, Facebook, etc.) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="AskHere.ai" />
+  <meta property="og:site_name" content="Xnative" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:url" content="https://askhere.ai/" />
-  <meta property="og:title" content="AskHere.ai — Talk with Grok on your Mac" />
-  <meta property="og:description" content="Free native Mac app for Grok. Download, install, and you’re in — Grok Build installs automatically." />
-  <meta property="og:image" content="https://askhere.ai/og-share.png" />
-  <meta property="og:image:secure_url" content="https://askhere.ai/og-share.png" />
+  <meta property="og:url" content="https://xnative.app/" />
+  <meta property="og:title" content="Xnative — Talk with Grok on your Mac" />
+  <meta property="og:description" content="Free native Mac app for Grok. Download, install, and you’re in — Grok Build installs automatically. Formerly AskHere." />
+  <meta property="og:image" content="https://xnative.app/og-share.png" />
+  <meta property="og:image:secure_url" content="https://xnative.app/og-share.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="AskHere.ai — colorful app logo on a light Mac-style background" />
+  <meta property="og:image:alt" content="Xnative — colorful app logo on a light Mac-style background" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@daniel_farinax" />
   <meta name="twitter:creator" content="@daniel_farinax" />
-  <meta name="twitter:url" content="https://askhere.ai/" />
-  <meta name="twitter:title" content="AskHere.ai — Talk with Grok on your Mac" />
-  <meta name="twitter:description" content="Free native Mac app for Grok. Download from askhere.ai — Grok Build installs automatically." />
-  <meta name="twitter:image" content="https://askhere.ai/og-share.png" />
-  <meta name="twitter:image:alt" content="AskHere.ai — colorful app logo on a light Mac-style background" />
+  <meta name="twitter:url" content="https://xnative.app/" />
+  <meta name="twitter:title" content="Xnative — Talk with Grok on your Mac" />
+  <meta name="twitter:description" content="Free native Mac app for Grok. Download from xnative.app — Grok Build installs automatically." />
+  <meta name="twitter:image" content="https://xnative.app/og-share.png" />
+  <meta name="twitter:image:alt" content="Xnative — colorful app logo on a light Mac-style background" />
 
   <link rel="icon" type="image/png" href="app-icon-v2.png" />
   <link rel="apple-touch-icon" href="app-icon-v2.png" />
@@ -46,6 +46,9 @@
       --soft: rgba(255, 255, 255, 0.55);
       --btn: #1d1d1f;
       --btn-text: #ffffff;
+      --banner-bg: #1d1d1f;
+      --banner-text: #f5f5f7;
+      --banner-link: #7dd3fc;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -61,7 +64,28 @@
     a { color: inherit; text-decoration: none; }
     a:hover { opacity: 0.7; }
 
-    /* macOS-style ambient stage */
+    /* Rename banner — shown on askhere.ai (legacy domain) */
+    .rename-banner {
+      display: none;
+      position: relative;
+      z-index: 20;
+      background: var(--banner-bg);
+      color: var(--banner-text);
+      text-align: center;
+      padding: 12px 16px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    body.show-legacy-banner .rename-banner { display: block; }
+    .rename-banner a {
+      color: var(--banner-link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
+    }
+    .rename-banner a:hover { opacity: 0.9; }
+    .rename-banner strong { font-weight: 650; }
+
     .aurora {
       position: fixed;
       inset: 0;
@@ -102,160 +126,98 @@
       width: min(50vw, 380px);
       height: min(50vw, 380px);
       top: 28%;
-      right: -6%;
-      background: radial-gradient(circle at 50% 50%, #fbcfe8 0%, #f9a8d4 38%, transparent 72%);
-      animation-duration: 24s;
+      right: -10%;
+      background: radial-gradient(circle at 50% 50%, #fda4af 0%, #fb7185 40%, transparent 72%);
+      animation-duration: 28s;
       animation-delay: -12s;
     }
     .aurora .orb-d {
-      width: min(60vw, 480px);
-      height: min(40vw, 320px);
-      bottom: -8%;
+      width: min(40vw, 300px);
+      height: min(40vw, 300px);
+      bottom: 5%;
       left: 30%;
-      background: radial-gradient(circle at 50% 40%, #bae6fd 0%, #7dd3fc 45%, transparent 75%);
-      opacity: 0.55;
-      animation-duration: 28s;
-      animation-delay: -3s;
+      background: radial-gradient(circle at 50% 50%, #6ee7b7 0%, #34d399 45%, transparent 70%);
+      animation-duration: 32s;
+      animation-delay: -4s;
+      opacity: 0.45;
     }
     .aurora .grain {
       position: absolute;
       inset: 0;
       opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 180px 180px;
-      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
     .aurora .veil {
       position: absolute;
       inset: 0;
-      backdrop-filter: blur(0px);
-      background:
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.55) 0%, transparent 60%),
-        radial-gradient(ellipse 70% 40% at 50% 100%, rgba(255,255,255,0.4) 0%, transparent 55%);
+      background: linear-gradient(180deg, rgba(245,245,247,0.2) 0%, rgba(245,245,247,0.75) 70%, var(--bg) 100%);
     }
-
     @keyframes float {
       0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
       33% { transform: translate3d(3%, 4%, 0) scale(1.04); }
-      66% { transform: translate3d(-4%, 2%, 0) scale(0.98); }
+      66% { transform: translate3d(-2%, 2%, 0) scale(0.98); }
     }
-    .aurora .orb-a {
-      animation-name: float-center;
-    }
-    @keyframes float-center {
+    .aurora .orb-a { animation-name: floatA; }
+    @keyframes floatA {
       0%, 100% { transform: translateX(-50%) translate3d(0, 0, 0) scale(1); }
       50% { transform: translateX(-50%) translate3d(0, 3%, 0) scale(1.05); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .aurora .orb { animation: none !important; }
     }
 
     .page {
       position: relative;
       z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 28px 24px 40px;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 24px 48px;
     }
-
     nav {
-      width: 100%;
-      max-width: 720px;
       display: flex;
       justify-content: flex-end;
       gap: 20px;
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: auto;
-      padding: 8px 14px;
-      border-radius: 980px;
-      background: rgba(255, 255, 255, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset, 0 8px 24px rgba(15, 23, 42, 0.04);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      width: auto;
-      margin-left: auto;
-      margin-right: 0;
-      align-self: flex-end;
+      margin-bottom: 48px;
     }
-
     main {
-      width: 100%;
-      max-width: 720px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      padding: 48px 0 64px;
-      margin: auto 0;
     }
-
-    .intro {
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .shot {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 40px auto 0;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      filter: drop-shadow(0 24px 48px rgba(15, 23, 42, 0.12));
-    }
-
+    .intro { max-width: 520px; }
     .logo {
-      width: 112px;
-      height: 112px;
-      border-radius: 26px;
-      margin: 0 auto 28px;
-      box-shadow:
-        0 1px 2px rgba(0,0,0,0.04),
-        0 12px 40px rgba(59, 130, 246, 0.18),
-        0 20px 50px rgba(0,0,0,0.08);
+      border-radius: 24px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      margin-bottom: 20px;
     }
-
     h1 {
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      font-weight: 650;
-      letter-spacing: -0.035em;
+      font-size: clamp(2.4rem, 6vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 10px;
       line-height: 1.1;
-      margin: 0 0 12px;
     }
-
     .tagline {
-      margin: 0 0 32px;
       font-size: 1.125rem;
       color: var(--muted);
-      font-weight: 400;
+      margin: 0 0 28px;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 28px;
-      border-radius: 980px;
       background: var(--btn);
       color: var(--btn-text);
-      font-size: 15px;
-      font-weight: 560;
-      box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 8px 20px rgba(0,0,0,0.12);
-      transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 14px 28px;
+      border-radius: 980px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      transition: transform 0.15s ease, opacity 0.15s ease;
     }
-    .btn:hover {
-      opacity: 0.92;
-      text-decoration: none;
-      transform: translateY(-1px);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 12px 28px rgba(0,0,0,0.14);
-    }
-
+    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
     .meta {
-      margin: 16px 0 0;
+      margin-top: 14px;
       font-size: 13px;
       color: var(--muted);
     }
@@ -266,36 +228,47 @@
     }
     .meta a:hover { opacity: 0.85; color: var(--text); }
 
+    .shot {
+      width: min(100%, 860px);
+      height: auto;
+      margin-top: 48px;
+      border-radius: 16px;
+      box-shadow:
+        0 0 0 1px var(--line),
+        0 24px 64px rgba(0,0,0,0.12);
+      background: var(--soft);
+    }
     .points {
       list-style: none;
       padding: 0;
-      margin: 40px auto 0;
+      margin: 40px 0 0;
       max-width: 480px;
-      display: grid;
-      gap: 10px;
       text-align: left;
     }
     .points li {
-      background: var(--soft);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 16px;
-      padding: 14px 16px;
-      font-size: 14.5px;
-      color: #3a3a3c;
-      backdrop-filter: saturate(180%) blur(18px);
-      -webkit-backdrop-filter: saturate(180%) blur(18px);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 8px 24px rgba(15, 23, 42, 0.04);
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      font-size: 15px;
+      color: var(--muted);
     }
-    .points strong {
-      color: var(--text);
-      font-weight: 600;
+    .points li:last-child { border-bottom: 1px solid var(--line); }
+    .points strong { color: var(--text); }
+
+    .note {
+      margin-top: 28px;
+      max-width: 480px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .note a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
     footer {
-      width: 100%;
-      max-width: 720px;
-      margin-top: auto;
-      padding-top: 24px;
+      margin-top: 56px;
+      padding-top: 20px;
       border-top: 1px solid var(--line);
       display: flex;
       flex-wrap: wrap;
@@ -309,6 +282,14 @@
   </style>
 </head>
 <body>
+  <!-- Visible when hosted on askhere.ai (legacy) -->
+  <div class="rename-banner" id="rename-banner" role="status">
+    <strong>We’ve renamed.</strong>
+    AskHere is now <strong>Xnative</strong> at
+    <a href="https://xnative.app/">xnative.app</a>
+    — same free Mac app for Grok, better name.
+  </div>
+
   <div class="aurora" aria-hidden="true">
     <div class="orb orb-a"></div>
     <div class="orb orb-b"></div>
@@ -326,17 +307,17 @@
 
     <main>
       <div class="intro">
-        <img class="logo" src="app-icon-v2.png" alt="AskHere.ai" width="112" height="112" />
-        <h1>AskHere.ai</h1>
+        <img class="logo" src="app-icon-v2.png" alt="Xnative" width="112" height="112" />
+        <h1>Xnative</h1>
         <p class="tagline">Talk with Grok on your Mac.</p>
-        <a class="btn" href="https://github.com/daniel-farina/askhere/releases/latest/download/AskHere.dmg">Download for Mac</a>
+        <a class="btn" href="https://github.com/daniel-farina/askhere/releases/latest/download/Xnative.dmg">Download for Mac</a>
         <p class="meta">Free · macOS 15+ · <a href="https://github.com/daniel-farina/askhere/releases" target="_blank" rel="noopener">GitHub releases</a></p>
       </div>
 
       <img
         class="shot"
         src="screenshot.png"
-        alt="AskHere.ai app showing projects, conversations, and chat"
+        alt="Xnative app showing projects, conversations, and chat"
         width="2396"
         height="1540"
       />
@@ -346,15 +327,31 @@
         <li><strong>Your projects</strong> — pick a folder; Grok stays in context.</li>
         <li><strong>Pick up later</strong> — past conversations are saved and easy to find.</li>
       </ul>
+
+      <p class="note">
+        Formerly <strong>AskHere</strong> / askhere.ai — we renamed the product and domain to
+        <a href="https://xnative.app/">xnative.app</a> for a clearer native-app identity.
+        Same open-source project, same unofficial Grok Mac shell.
+      </p>
     </main>
 
     <footer>
       <span>By <a href="https://x.com/daniel_farinax" target="_blank" rel="noopener">@daniel_farinax</a> · <a href="https://github.com/daniel-farina/askhere/releases" target="_blank" rel="noopener">Releases</a> · Not affiliated with xAI</span>
-      <span>© <span id="y"></span> Daniel Farina</span>
+      <span>© <span id="y"></span> Daniel Farina · <a href="https://xnative.app/">xnative.app</a></span>
     </footer>
   </div>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+    // Show migration banner on the old domain (and local previews with ?legacy=1)
+    (function () {
+      var host = (location.hostname || "").toLowerCase();
+      var legacy =
+        host === "askhere.ai" ||
+        host === "www.askhere.ai" ||
+        host.endsWith(".askhere-ai.pages.dev") ||
+        /[?&]legacy=1(?:&|$)/.test(location.search);
+      if (legacy) document.body.classList.add("show-legacy-banner");
+    })();
   </script>
 </body>
 </html>

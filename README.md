@@ -1,26 +1,11 @@
-# AskHere.ai
+# Xnative
 
-Desktop GUI for the [Grok CLI](https://x.ai/cli) — talk with Grok on your Mac without living in the terminal.
+Native Mac app for Grok. **Site:** [xnative.app](https://xnative.app)
 
-## Official website
+Formerly **AskHere** / askhere.ai — renamed for a clearer native-app identity.  
+Legacy domain [askhere.ai](https://askhere.ai) redirects attention via a banner to xnative.app.
 
-**https://askhere.ai**
+- Releases: https://github.com/daniel-farina/askhere/releases  
+- Download: https://github.com/daniel-farina/askhere/releases/latest/download/Xnative.dmg  
 
-## Download
-
-- **Latest release:** https://github.com/daniel-farina/askhere/releases/latest
-- macOS 15+
-
-## About this repository
-
-This public repo is the product home for:
-- Marketing site source (deployed to [askhere.ai](https://askhere.ai))
-- Binary releases (DMG)
-
-Application **source code is private** and is not published here.
-
-## Author
-
-[@daniel_farinax](https://x.com/daniel_farinax)
-
-> **Not affiliated with xAI.** Unofficial independent app. Grok® and related marks belong to their respective owners.
+Not affiliated with xAI.
